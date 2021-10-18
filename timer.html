@@ -1,115 +1,260 @@
-<!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<title>Productivity Tool</title>
+
+<head>
+    <title>Task Management and count down</title>
+</head>
+<style>
+
+
+    .base-timer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    }
+
+    .base-timer__svg {
+    transform: scaleX(-1);
+    }
+
+    .base-timer__circle {
+    fill: none;
+    stroke: none;
+    }
+
+    .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+    }
+
+    .base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+    }
+
+    .base-timer__path-remaining.green {
+    color: rgb(65, 184, 131);
+    }
+
+    .base-timer__path-remaining.orange {
+    color: orange;
+    }
+
+    .base-timer__path-remaining.red {
+    color: red;
+    }
+
+    .base-timer__label {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    }
+
+        * {
+            box-sizing: border-box;
+        }
+    
+        /* Create two unequal columns that floats next to each other */
+        .column {
+            float: left;
+            padding: 10px;
+            height: 500px;
+            /* Should be removed. Only for demonstration */
+        }
+    
+        .left {
+            width: 25%;
+        }
+    
+        .right {
+            width: 75%;
+        }
+    
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+</style>
+
 <body>
 
-	<!-- Navigation -->
-	<nav class="w3-bar w3-dark-green">
-        <a href="index.html" class="w3-button w3-bar-item"><i class="fa fa-fw fa-home"></i><b>Home</b></a>
-        <a href="events.html" class="w3-button w3-bar-item"><b>Events</b></a>
-        <a href="FIRSTgrant.html" class="w3-button w3-bar-item"><b>Grants</b></a>
-        <a href="Donation.html" class="w3-button w3-bar-item"><b>Donations</b></a>
-        <a href="Volunteer.html" class="w3-button w3-bar-item"><b>Volunteer</b></a>
-        <a href="about.html" class="w3-button w3-bar-item"><b>About/Contact</b></a>
-        <a href="timer.html" class="w3-button w3-bar-item"><b>Productivity Tool</b></a>
-	</nav>
+    <div class="row">
+        <div class="column left" style="background-color:rgb(245, 246, 248);">
+            <h2>Set timer:</h2>
+            <label>Hours:</label>
+            <input type="number" id="hour" value="0"><br><br>
+            <label>Minutes:</label>
+            <input type="number" id="minute" value="0"><br><br>
+            <label>Seconds:</label>
+            <input type="number" id="second" value="0"><br><br>
+            <br>
+            <button id="timerStartBtn" type="button" onclick="startTimer()">Start Timer</button>
+            <br>
+            <br>
+            <div id="app"></div>
 
-	<section class="w3-container w3-center w3-content" style="max-width:600px">
-		<br>
-		<h2 class="w3-wide">Productivity Tool</h2>
-		<p class="w3-opacity"><i>Focus on being productive instead of busy.</i></p>
-		<p class="w3-left-align">This tool includes a timer feature to help users with time management. </p>
-        <p class="w3-left-align">CURRENTLY IN DEVELOPMENT! </p>
-		<br>
-        <p id="demo"></p>
-	
-	</head>
-	<body>
-	<form name="myform" action="" method="get">
-		To-Do List: <br>
-		<input type="text" name="inputbox" value="">
-		<input type="text" name="inputbox2" value="">
-		<input type="text" name="inputbox3" value="">
-		<input type="text" name="inputbox4" value="">
-		<input type="text" name="inputbox5" value="">
-		<input type="text" name="inputbox6" value="">
-	
-	</form>
-	 
-	</body>
-	</html>
-
-	<script>
-		// Set the date we're counting down to
-
-		var countDownTime = new Date("Oct 19, 2021 15:00:00").getTime();
-
-		// Update the count down every 1 second
-		var x = setInterval(function() {
-
-		// Get today's date and time
-		var now = new Date().getTime();
-			
-		// Find the distance between now and the count down date
-		var distance = countDownTime - now;
-			
-		// Time calculations for days, hours, minutes and seconds
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			
-		// Output the result in an element with id="demo"
-		document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-		+ minutes + "m " + seconds + "s ";
-			
-		// If the count down is over, write some text 
-		if (distance < 0) {
-			clearInterval(x);
-			document.getElementById("demo").innerHTML = "TIMES UP";
-		}
-		}, 1000);
-
-		let timerInterval = null;
-
-		document.getElementById("app").innerHTML = `...`
-
-		function startTimer() {
-		timerInterval = setInterval(() => {
-			
-			// The amount of time passed increments by one
-			timePassed = timePassed += 1;
-			timeLeft = TIME_LIMIT - timePassed;
-			
-			// The time left label is updated
-			document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-		}, 1000);
-}
-		
-	</script>
-
-	<br>
-	<br>
-
-		
-    </body>
-</html>
-	<!-- Footer -->
-	<footer class="w3-container w3-padding-32 w3-center w3-dark-green w3-xlarge">
-		<a href="https://www.facebook.com/Everstem-Education-105474541794646"><i
-				class="fa fa-facebook-official"></i></a>
-		<a href="https://www.linkedin.com/company/everstem-education/"><i class="fa fa-linkedin"></i></a>
-		<a href="https://www.instagram.com/everstem/"><i class="fa fa-instagram"></i></a>
-		<p class="w3-medium">
-			Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-		</p>
-	</footer>
+        </div>
+        <div class="column right" style="background-color:rgb(224, 222, 222);">
+            <h2>Enter your task to track:</h2>
+            <textarea name="Text1" cols="102" rows="25"></textarea>
+        </div>
+    </div>
 
 
 </body>
+
+<script>
+    // Credit: Mateusz Rybczonec
+
+    const FULL_DASH_ARRAY = 283;
+    const WARNING_THRESHOLD = 10;
+    const ALERT_THRESHOLD = 5;
+
+    const COLOR_CODES = {
+        info: {
+            color: "green"
+        },
+        warning: {
+            color: "orange",
+            threshold: WARNING_THRESHOLD
+        },
+        alert: {
+            color: "red",
+            threshold: ALERT_THRESHOLD
+        }
+    };
+
+    TIME_LIMIT = 0;
+    let timePassed = 0;
+    let timeLeft = TIME_LIMIT;
+    let timerInterval = null;
+    let remainingPathColor = COLOR_CODES.info.color;
+
+    document.getElementById("app").innerHTML = `
+    <div class="base-timer">
+    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g class="base-timer__circle">
+        <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+        <path
+            id="base-timer-path-remaining"
+            stroke-dasharray="283"
+            class="base-timer__path-remaining ${remainingPathColor}"
+            d="
+            M 50, 50
+            m -45, 0
+            a 45,45 0 1,0 90,0
+            a 45,45 0 1,0 -90,0
+            "
+        ></path>
+        </g>
+    </svg>
+    <span id="base-timer-label" class="base-timer__label">${formatTime(
+            timeLeft
+        )}</span>
+    </div>
+    `;
+
+    function onTimesUp() {
+        clearInterval(timerInterval);
+    }
+
+    function startTimer() {
+        TIME_LIMIT = 0;
+        console.log (document.getElementById('timerStartBtn').disabled);
+        document.getElementById('timerStartBtn').disabled=true;
+        var hourInput = document.getElementById('hour').value;
+        var minuteInput = document.getElementById('minute').value;
+        var secondInput = document.getElementById('second').value;
+        console.log (hourInput);
+        console.log(minuteInput);       
+        console.log(secondInput);
+
+        if (hourInput==0) { 
+            if (minuteInput == 0) {
+             if (secondInput == 0) {
+            return;
+             }
+           }
+        }
+       
+        TIME_LIMIT = hourInput*60*60 + minuteInput*60 + secondInput*1;
+        console.log(TIME_LIMIT);
+
+        //console.log (hourInput);
+
+        timerInterval = setInterval(() => {
+            timePassed = timePassed += 1;
+            timeLeft = TIME_LIMIT - timePassed;
+            document.getElementById("base-timer-label").innerHTML = formatTime(
+                timeLeft
+            );
+            setCircleDasharray();
+            setRemainingPathColor(timeLeft);
+
+            if (timeLeft === 0) {
+                document.getElementById('timerStartBtn').disabled = false;
+                onTimesUp();
+            }
+        }, 1000);
+
+    }
+
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        if (seconds < 10) {
+            seconds = `0${seconds}`;
+        }
+
+        return `${minutes}:${seconds}`;
+    }
+
+    function setRemainingPathColor(timeLeft) {
+        const { alert, warning, info } = COLOR_CODES;
+        if (timeLeft <= alert.threshold) {
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(warning.color);
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(alert.color);
+        } else if (timeLeft <= warning.threshold) {
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(info.color);
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(warning.color);
+        }
+    }
+
+    function calculateTimeFraction() {
+        const rawTimeFraction = timeLeft / TIME_LIMIT;
+        return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+    }
+
+    function setCircleDasharray() {
+        const circleDasharray = `${(
+            calculateTimeFraction() * FULL_DASH_ARRAY
+        ).toFixed(0)} 283`;
+        document
+            .getElementById("base-timer-path-remaining")
+            .setAttribute("stroke-dasharray", circleDasharray);
+    }
+
+</script>
 
 </html>
