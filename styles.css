@@ -1,5 +1,14 @@
 :root {
   --primary: #1d8120;
+  --primary-light: #289c2c;
+  --primary-dark: #08552e;
+
+  --secondary: #337799;
+
+  --gray-0: white;
+  --gray-20: #ccc;
+  --gray-50: gray;
+  --gray-100: black;
 }
 
 html {
@@ -55,8 +64,8 @@ textarea {
 hr {
   height:2px;
   border-width:0;
-  color:gray;
-  background-color:gray;
+  color: var(--gray-50);
+  background-color: var(--gray-50);
 }
 
 .grid-half {
@@ -86,7 +95,7 @@ hr {
 .navbar {
   width: 100%;
   overflow: hidden;
-  color: #fff;
+  color: var(--gray-0);
   background-color: var(--primary);
 }
 .navbar .navbar-item {
@@ -104,13 +113,13 @@ hr {
   vertical-align: middle;
   overflow: hidden;
   text-decoration: none !important;
-  color: #fff;
+  color: var(--gray-0);
   text-align: center;
   cursor: pointer;
 }
 .navbar-item:hover {
-  color: #000 !important;
-  background-color: #ccc !important;
+  color: var(--gray-100) !important;
+  background-color: var(--gray-20) !important;
 }
 .navbar-block .navbar-item {
   width: 100%;
@@ -133,9 +142,9 @@ section {
 }
 
 .shadow {
-  color: #fff;
-  background-color: #08552e;
-  box-shadow: 2px 2px 60px #289c2c;
+  color: var(--gray-0);
+  background-color: var(--primary-dark);
+  box-shadow: 2px 2px 60px var(--primary-light);
 }
 
 .card {
@@ -145,7 +154,7 @@ section {
 }
 
 button {
-  background-color: #607d8b;
+  background-color: var(--secondary);
   width: 100%;
   border: none;
   color: white;
@@ -155,7 +164,7 @@ button {
 footer {
   padding: 16px;
   text-align: center;
-  color: white;
-  background-color: #1d8120;
+  color: var(--gray-0);
+  background-color: var(--primary);
   font-size: 24px;
 }
