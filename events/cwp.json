@@ -1,0 +1,107 @@
+{
+  "04-30-2022": {
+    "title": "Natural Hazards Reconnaissance",
+    "date": "April 30th, 2022 (Sat) at 12 PM PT",
+    "description": "Jeff Berman is giving a talk about natural hazards reconnaissance. He is a Professor in the Civil and Environmental Engineering Department at the University of Washington. He conducts research in structural engineering, with a focus on earthquake and natural hazard impacts on buildings.",
+    "image": "images/blog/Jeffrey.jpg",
+    "link": "https://www.youtube.com/watch?v=fvErG8eaLHw"
+  },
+  "03-20-2022": {
+    "title": "Business at Everday Robots",
+    "date": "March 20th, 2022 at 5 PM PT",
+    "description": "Jasmine Lawrence is a Product Manager at Everyday Robots. Everyday Robots is building a new type of learning robot— one that can learn by itself, to help anyone with (almost) anything. Prior to this, she served on the Blood Donations and Portal teams at Facebook as a Technical Program Manager.",
+    "image": "images/blog/jasmine.jpg",
+    "link": "https://www.youtube.com/watch?v=ruJFLvoV2HE"
+  },
+  "02-28-2022": {
+    "title": "Intellectual Property Protection",
+    "date": "February 28th, 2022 at 7 PM PT",
+    "description": "Shaobin Zhu will give a talk about IP Protection in Robotics and Smart Transportation. Shaobin Zhu is a partner who focuses on IP (patent, trade secret, trademark, copyright, and domain name) litigation in US district courts and Section 337 investigations at the US International Trade Commission.",
+    "image": "images/blog/shaobin.jpg",
+    "link": "https://www.youtube.com/watch?v=mzdODEeNiD8"
+  },
+  "01-28-2022": {
+    "title": "Science and Education",
+    "date": "January 28th, 2022 at 7 PM PT",
+    "description": "Laura LeBlanc is an Upper School Science Faculty member at The Bush School where she teaches Chemistry, Environmental Science, and Regional Geology of the PNW. Prior to teaching at Bush, she taught science at Seattle Academy of Arts and Sciences (SAAS).",
+    "image": "images/blog/laura.jpg",
+    "link": "https://www.youtube.com/watch?v=SNmnynCK27E"
+  },
+  "01-08-2022": {
+    "title": "Artificial Intelligence & Robotics",
+    "date": "January 8th, 2022 at 10 AM PT",
+    "description": "Talk from Anne Kao , an Executive Consultant at the Collinear Group about artificial intelligence and robotics. Anne Kao was a Senior Technical Fellow in Boeing where she worked for 30 years. Anne is a recognized industry leader in data analytics and artificial intelligence.",
+    "image": "images/blog/Anne.jpg",
+    "link": "https://www.youtube.com/watch?v=5I507SCeXuw"
+  },
+  "12-19-2022": {
+    "title": "Leveraging 1/10th Scale Designs",
+    "date": "December 19th, 2022 at 9 AM PT",
+    "description": "Dr. Osama A. Osman is the Assistant Professor of Intelligent Transportation Systems and Data Analytics in the Department of Civil and Chemical Engineering (CCE) and the Mobility Thrust Lead in the Center for Urban Informatics and Progress at the University of Tennessee.",
+    "image": "images/blog/Osama.jpg",
+    "link": "https://www.youtube.com/watch?v=xpFG--SYIZ0"
+  },
+  "11-21-2022": {
+    "title": "Connected Automated Vehicles",
+    "date": "November 21th, 2021 at 1 PM PT",
+    "description": "Dr. Xiaopeng (Shaw) Li is currently the Susan A. Bracken Associate Professor in the Department of Civil and Environmental Engineering and also affiliated with the Center for Urban Transportation Research (CUTR) at the University of South Florida (USF).",
+    "image": "images/blog/xiapeng.png",
+    "link": "https://www.youtube.com/watch?v=1Eu_kMsmVyQ"
+  },
+  "11-06-2022": {
+    "title": "AI Applications in Transportation",
+    "date": "November 6th, 2021 at 2 PM PT",
+    "description": "Professor Yinhai Wang is a professor in transportation engineering and the founding director of the Smart Transportation Applications and Research Laboratory (STAR Lab) at the University of Washington. He also serves as director for Pacific Northwest Transportation Consortium (PacTrans).",
+    "image": "images/blog/yinhai.png",
+    "link": "https://www.youtube.com/watch?v=PCWz7aifUys"
+  },
+  "10-26-2022": {
+    "title": "Experiences as a Physics Researcher",
+    "date": "October 26th, 2021 at 3:30 PM PT",
+    "description": "Professor Gwynne Crowder is a physicist that has searched for remnants of the early universe from Antarctica, launched a rocket from the desert of New Mexico to study hot gases in space, and traveled deep underground in South Dakota to aid in the search for gravitational waves.",
+    "image": "images/blog/Gwynne.png",
+    "link": "https://www.youtube.com/watch?v=tnLzi12lgZM"
+  },
+  "03-27-2021": {
+    "title": "The Art of Busines and Inventing",
+    "date": "March 27th, 2021 at 5 PM PT",
+    "description": "Entrepreneur and published author Ryfka Schafer will be presenting her career experiences. She will talk specifically about her product, the Litter Picker Sticker, covering the art and business of inventing, prototyping, copyrighting, trademarking, and patenting.",
+    "image": "none",
+    "link": "https://www.youtube.com/c/EverstemEducation/videos"
+  },
+  "02-27-2021": {
+    "title": "Industrial Robotics in Japan",
+    "date": "February 27th, 2021 at 4 PM PT",
+    "description": "Shiyu Xia is currently working as a hardware engineer at Mujin Inc. in Tokyo, a company that innovates in the field of industrial robot applications. His main focus is on designing printed circuit boards, which are integrated into interface devices and industrial computers. This opportunity is provided by FIRST FTC Team 18225 team.",
+    "image": "none",
+    "link": "https://www.youtube.com/c/EverstemEducation/videos"
+  },
+  "02-03-2021": {
+    "title": "Careers in the Gaming Industry",
+    "date": "February 3rd, 2021 at 5 PM PT",
+    "description": "Robert and Kirk from Bellevue based game studio ArenaNet will share information on career options in gaming, and describe their roles and experiences working in the industry. A short presentation will be followed by an open Q&A session. This opportunity is provided by FIRST FTC Team 18225 team.",
+    "image": "none",
+    "link": "https://www.youtube.com/watch?v=q7LDOfRB7Fc"
+  },
+  "12-26-2021": {
+    "title": "Startup Life Cycle and Funding",
+    "date": "December 26th, 2020 at 2 PM PT",
+    "description": "Howie will speak about startup life cycles and business funding. He will answer any questions students may have. Howie Xu is a silicon valley serial entrepreneur and investor. Howie is the CEO/Founder of TrustPath which was acquired by Zscaler (NASDAQ: ZS) in 2018. Before that, he was an EIR of Greylock Partners. Before that, he was a senior executive at Cisco and VMware.",
+    "image": "none",
+    "link": "https://www.youtube.com/watch?v=b-owX96JleI"
+  },
+  "11-22-2020": {
+    "title": "Mixed Reality & Robotics",
+    "date": "November 22nd, 2020 at 11 AM PT",
+    "description": "Jeff Delmerico is a senior scientist from Microsoft. Jeff has over 10 years of experience in research, focused primarily on robotic perception. This work spans a variety of domains (visual-inertial odometry, machine learning, semantic perception), sensor modalities (monocular, stereo, and depth cameras), and hardware platforms (ground robots, marine robots, and drones).",
+    "image": "none",
+    "link": "https://www.youtube.com/c/EverstemEducation/videos"
+  },
+  "10-22-2020": {
+    "title": "Entrepreneurship in Robotics",
+    "date": "October 22nd, 2020 at 4 PM PT",
+    "description": "Fab Qian (Senior Business Planner), Meera Rajagopalan (Product Marketing Manager), and Hannah Liu (Business Development Manager) from the Microsoft Robotics Marketing team will give an hour-long talk on business and entrepreneurship in Robotics. They will provide students an overview of the Cloud Robotics landscape, business opportunities for robotics innovators, and how Microsoft is helping robotics startups.",
+    "image": "none",
+    "link": "https://www.youtube.com/c/EverstemEducation/videos"
+  }
+}

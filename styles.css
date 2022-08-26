@@ -2,6 +2,7 @@
   --primary: #1d8120;
   --primary-light: #289c2c;
   --primary-dark: #08552e;
+  --primary-tint: #e0ffe0;
 
   --secondary: #337799;
 
@@ -48,6 +49,20 @@ a {
   color: inherit;
 }
 
+.link {
+  background-color: var(--primary);
+  color: var(--gray-0);
+  padding: 10px 11px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.link:hover {
+  background-color: var(--primary-light);
+  text-decoration: underline;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -70,8 +85,8 @@ hr {
 
 .grid-half {
   display: grid;
-  grid-template-columns: 49% 49%;
-  column-gap: 10px;
+  grid-template-columns: 48% 48%;
+  column-gap: 20px;
   row-gap: 10px;
 }
 
@@ -83,10 +98,26 @@ hr {
   height: 100%;
 }
 
-.grid-third div {
+.grid-third .area {
   border: 3px solid var(--primary);
   height: 100%;
   padding: 10px;
+}
+
+.grid-events {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  height: 110%;
+  row-gap: 30px;
+  column-gap: 10px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  position: relative;
+  padding-bottom: 20px;
 }
 
 .header {
@@ -154,19 +185,22 @@ section {
   box-shadow: 2px 2px 60px var(--primary-light);
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-  padding: 10px !important;
-  width:100%;
-}
-
 button {
-  background-color: var(--secondary);
+  background-color: var(--primary-light);
   width: 100%;
   border: none;
   color: white;
-  text-decoration: none !important;
-  padding: 10px;
+  text-decoration: none;
+  padding: 5px;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--primary);
+  text-decoration: underline;
 }
 
 footer {
