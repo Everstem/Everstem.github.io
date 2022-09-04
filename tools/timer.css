@@ -51,15 +51,22 @@
   font-size: 48px;
 }
 
-.column {
-  display: grid;
-  grid-template-columns: 25% 75%;
+.side {
   padding: 10px;
-  height: 500px;
+  width: 100%;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+textarea {
+  font-size: 15px;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+button:hover {
+  cursor: pointer;
 }

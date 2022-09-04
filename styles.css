@@ -15,7 +15,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  font-size: 16px;
+  font-size: 20px;
 
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
@@ -132,12 +132,15 @@ hr {
 
 .navbar {
   width: 100%;
-  overflow: hidden;
+  position: fixed;
+  top: 0;
   color: var(--gray-0);
   background-color: var(--primary);
+  height: 65px;
+  overflow: hidden;
 }
+
 .navbar .navbar-item {
-  padding: 16px 16px;
   float: left;
   background-color: transparent;
   color: inherit;
@@ -148,6 +151,7 @@ hr {
   white-space: normal;
   display: inline-block;
   outline: 0;
+  height: 100%;
   vertical-align: middle;
   overflow: hidden;
   text-decoration: none !important;
@@ -162,7 +166,7 @@ hr {
 .navbar-block .navbar-item {
   width: 100%;
   display: block;
-  padding: 8px 16px;
+  height: 100%;
   text-align: left;
   background-color: inherit;
   color: inherit;
@@ -178,14 +182,19 @@ section {
   margin: auto;
   text-align: center;
 }
-
+.home{
+  padding: 20px;
+}
+.homeButton {
+  padding: 6px;
+}
 .shadow {
   color: var(--gray-0);
   background-color: var(--primary-dark);
   box-shadow: 2px 2px 60px var(--primary-light);
 }
 
-button {
+.button {
   background-color: var(--primary-light);
   width: 100%;
   border: none;
@@ -198,7 +207,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   background-color: var(--primary);
   text-decoration: underline;
 }
