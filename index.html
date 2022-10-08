@@ -6,6 +6,7 @@
     
     <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <script src="https://kit.fontawesome.com/28783eaa78.js" crossorigin="anonymous"></script>
     <title>Everstem Education</title>
     <link rel="icon" href="logo.png"/>
   </head>
@@ -19,22 +20,32 @@
     <a href="../donation.html" class="navbar-item home"><b>Donate</b></a>
     <a href="../blog.html" class="navbar-item home"><b>Blog</b></a>
     <a href="../tools/timer.html" class="navbar-item home"><b>Timer</b></a>
-</nav>
 
-<div style="background-image: url('images/back.jpg');">
-<section class="shadow" style="max-width:800px;">
-    <br>
-    <img src="logo.png" alt="Everstem" style="width:10%">
-    <h2 class="header">EVERSTEM EDUCATION</h2>
-    <p style="text-align: center;"><i>A non-profit organization run by students for students</i></p>
-    <p>Everstem is a 501(c)(3) non-profit organization based in Washington State, USA. We are dedicated to making STEM educational opportunities more accessible for all students through free workshops, seminars, hackathon events and providing grants and mentorship for new <a href="https://www.firstinspires.org/robotics/fll">FIRST Lego League (FLL)</a> and <a href="https://www.firstinspires.org/robotics/ftc">FIRST Tech Challenge (FTC)</a></p>
-    <br>
-    <p style="text-align: right;"><i>“I have no special talents. I am only passionately curious.”</i></p>
-    <p style="text-align: right;">― Albert Einstein</p>
-</section>
+    <div class="theme-switch-wrapper">
+      <div>
+        <p style="margin-right: 5px;"><i class="fa-solid fa-moon"></i></p>
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+</nav>
+  
+<div class="backgroundShadow">
+  <section class="shadow" style="max-width:800px;">
+      <br>
+      <img src="logo.png" alt="Everstem" style="width:10%">
+      <h2 class="header">EVERSTEM EDUCATION</h2>
+      <p style="text-align: center;"><i>A non-profit organization run by students for students</i></p>
+      <p>Everstem is a 501(c)(3) non-profit organization based in Washington State, USA. We are dedicated to making STEM educational opportunities more accessible for all students through free workshops, seminars, hackathon events and providing grants and mentorship for new <a href="https://www.firstinspires.org/robotics/fll">FIRST Lego League (FLL)</a> and <a href="https://www.firstinspires.org/robotics/ftc">FIRST Tech Challenge (FTC)</a></p>
+      <br>
+      <p style="text-align: right;"><i>“I have no special talents. I am only passionately curious.”</i></p>
+      <p style="text-align: right;">― Albert Einstein</p>
+  </section>
 </div>
 
-<div style="padding: 10px; background-color: white;">
+<div style="padding: 10px; background-color: var(--background);">
   <div class="slideshow-container">
     <div class="mySlides">
       <p><b>EVENTS</b></p>
@@ -109,6 +120,7 @@ function showSlides(n) {
   var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = slides.length}
+  
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";  
   }
@@ -118,7 +130,31 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
-</script>
 
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }    
+}
+
+window.onload = function() {
+  const toggleSwitch = document.querySelector("#checkbox");
+  console.log(toggleSwitch);
+  const currentTheme = localStorage.getItem('theme');
+  
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+  toggleSwitch.addEventListener('change', switchTheme, false);
+}
+</script>
 </body>
 </html> 

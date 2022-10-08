@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles.css"/>
     <link rel="stylesheet" href="./timer.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <script src="https://kit.fontawesome.com/28783eaa78.js" crossorigin="anonymous"></script>
     <title>Everstem Education | Task Management</title>
     <link rel="icon" href="../logo.png"/>
   </head>
@@ -21,9 +22,19 @@
     <a href="../donation.html" class="navbar-item home"><b>Donate</b></a>
     <a href="../blog.html" class="navbar-item home"><b>Blog</b></a>
     <a href="../tools/timer.html" class="navbar-item home"><b>Timer</b></a>
+
+    <div class="theme-switch-wrapper">
+      <div>
+        <p style="margin-right: 5px;"><i class="fa-solid fa-moon"></i></p>
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
 </nav>
-    <div class="grid-half">
-        <div class="side" style="background-color:rgb(245, 246, 248);">
+    <div class="grid-half" style="color: var(--gray-100)">
+        <div class="side">
             <h2 class="header">Set Timer</h2>
             <label>Hours:</label>
             <input type="number" id="hour" value="0"><br>
@@ -36,7 +47,7 @@
             <br><br>
             <div id="app"></div>
         </div>
-        <div class="side" style="background-color:rgb(224, 222, 222);">
+        <div class="side" style="border-left: 4px solid var(--gray-50);">
             <h2 class="header">Enter Tasks to Track</h2>
             <textarea name="Text1"></textarea>
         </div>
@@ -198,6 +209,31 @@
             .getElementById("base-timer-path-remaining")
             .setAttribute("stroke-dasharray", circleDasharray);
     }
+
+  function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }    
+}
+
+window.onload = function() {
+  const toggleSwitch = document.querySelector("#checkbox");
+  console.log(toggleSwitch);
+  const currentTheme = localStorage.getItem('theme');
+  
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+  toggleSwitch.addEventListener('change', switchTheme, false);
+}
 
 </script>
 

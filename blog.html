@@ -10,17 +10,28 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+    <script src="https://kit.fontawesome.com/28783eaa78.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <br /><br />
-    <!-- Navigation -->
+<!-- Navigation -->
 <nav class="navbar" style="text-align: center;">
-    <a href="../" class="navbar-item "><img class="homeButton" src="logo.png" height=50px padding=0px></a>
+    <a href="../" class="navbar-item"><img class="homeButton" src="logo.png" height=50px padding=0px></a>
     <a href="../events.html" class="navbar-item home"><b>Events</b></a>
     <a href="../grants.html" class="navbar-item home"><b>Grants</b></a>
     <a href="../donation.html" class="navbar-item home"><b>Donate</b></a>
     <a href="../blog.html" class="navbar-item home"><b>Blog</b></a>
     <a href="../tools/timer.html" class="navbar-item home"><b>Timer</b></a>
+
+    <div class="theme-switch-wrapper">
+      <div>
+        <p style="margin-right: 5px;"><i class="fa-solid fa-moon"></i></p>
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
 </nav>
     <section class="blog">
       <div style="text-align: center;">
@@ -28,7 +39,7 @@
         <p style="color: gray;"><i>A non-profit organization run by students for students</i></p>
       </div>
 
-    <div>
+    <div style="border: 4px solid var(--secondary); padding: 5px;">
       <h2>2021</h2>
       <a href= "#oct2021">October</a>
       <a href= "#nov2021">November</a>
@@ -40,31 +51,78 @@
       <br>
       <br>
     </div>
+      <br />
 
-    <div id ="oct2021">
-      <zero-md src="blogs/Oct2021.md"></zero-md>
-      <hr class ="gray">
-      <br>
-    </div> 
+    <div>
+      <div id ="oct2021">
+        <zero-md src="blogs/Oct2021.md">
+          <template>
+            <style>
+              .markdown-body {
+                color: var(--gray-100);
+              }
 
-    <div id ="nov2021">
-      <zero-md src="blogs/Nov2021.md"></zero-md>
-      <hr class ="gray">
-      <br>      
-    </div>  
+              a {
+                color: var(--link);
+              }
+            </style>
+          </template>
+        </zero-md>
+        <hr class ="gray">
+        <br>
+      </div> 
+      <div id ="nov2021">
+        <zero-md src="blogs/Nov2021.md">
+          <template>
+            <style>
+              .markdown-body {
+                color: var(--gray-100);
+              }
 
-    <div id ="dec2021">
-      <zero-md src="blogs/Dec2021.md"></zero-md>
+              a {
+                color: var(--link);
+              }
+            </style>
+          </template>
+        </zero-md>
+        <hr class ="gray">
+        <br>      
+      </div>  
+      <div id ="dec2021">
+        <zero-md src="blogs/Dec2021.md">
+          <template>
+            <style>
+              .markdown-body {
+                color: var(--gray-100);
+              }
+
+              a {
+                color: var(--link);
+              }
+            </style>
+          </template>
+        </zero-md>
+        <hr class ="gray">
+        <br>
+      </div>
+      <div id="jan2022">
+      <zero-md src="blogs/Jan2022.md">
+        <template>
+            <style>
+              .markdown-body {
+                color: var(--gray-100);
+              }
+
+              a {
+                color: var(--link);
+              }
+            </style>
+          </template>
+      </zero-md>
       <hr class ="gray">
       <br>
     </div>
-      
-    <div id="jan2022">
-      <zero-md src="blogs/Jan2022.md"></zero-md>
-      <hr class ="gray">
-      <br>
     </div>
-      
       
     </section>
     <!-- Footer -->
@@ -75,5 +133,32 @@
       <a href="https://www.instagram.com/everstem/"><i class="fa fa-instagram"></i></a>
       <a href="https://www.youtube.com/EverstemEducation"><i class="fa fa-youtube"></i></a>
     </footer>
+
+    <script>
+      function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }    
+}
+
+window.onload = function() {
+  const toggleSwitch = document.querySelector("#checkbox");
+  console.log(toggleSwitch);
+  const currentTheme = localStorage.getItem('theme');
+  
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+  toggleSwitch.addEventListener('change', switchTheme, false);
+}
+    </script>
   </body>
 </html>

@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <script src="https://kit.fontawesome.com/28783eaa78.js" crossorigin="anonymous"></script>
     <title>Everstem Education | Grant</title>
     <link rel="icon" href="logo.png"/>
   </head>
   <body>
     <br /><br />
-    <!-- Navigation -->
+<!-- Navigation -->
 <nav class="navbar" style="text-align: center;">
-    <a href="../" class="navbar-item "><img class="homeButton" src="logo.png" height=50px padding=0px></a>
+    <a href="../" class="navbar-item"><img class="homeButton" src="logo.png" height=50px padding=0px></a>
     <a href="../events.html" class="navbar-item home"><b>Events</b></a>
     <a href="../grants.html" class="navbar-item home"><b>Grants</b></a>
     <a href="../donation.html" class="navbar-item home"><b>Donate</b></a>
     <a href="../blog.html" class="navbar-item home"><b>Blog</b></a>
     <a href="../tools/timer.html" class="navbar-item home"><b>Timer</b></a>
+
+    <div class="theme-switch-wrapper">
+      <div>
+        <p style="margin-right: 5px;"><i class="fa-solid fa-moon"></i></p>
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
 </nav>
     <section style="max-width:600px;">
       <br>
@@ -88,5 +99,31 @@
       <a href="https://www.instagram.com/everstem/"><i class="fa fa-instagram"></i></a>
       <a href="https://www.youtube.com/EverstemEducation"><i class="fa fa-youtube"></i></a>
     </footer>
+    <script>
+      function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }    
+}
+
+window.onload = function() {
+  const toggleSwitch = document.querySelector("#checkbox");
+  console.log(toggleSwitch);
+  const currentTheme = localStorage.getItem('theme');
+  
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+  toggleSwitch.addEventListener('change', switchTheme, false);
+}
+    </script>
   </body>
 </html>
