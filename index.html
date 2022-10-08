@@ -33,32 +33,43 @@
     <p style="text-align: right;">― Albert Einstein</p>
 </section>
 </div>
-<div class="grid-third" style="padding: 10px; text-align: center;background-color: white !important;">
-    <div class="area">
-        <p><b>EVENTS</b></p>
-        <a href="events.html">
-        <img src="images/event.jpg" alt="Event" style="width:43%">
-        </a>
-        <p>We provide students with STEM educational opportunities including free <b>workshops</b>, <b>seminars</b> and <b>hackathons</b>. We'd like to connect students with professionals in the tech industry and help them prepare for STEM related careers.</p>
-        <a href="events.html" class="link">View events</a>
+
+<div style="padding: 10px; background-color: white;">
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <p><b>EVENTS</b></p>
+      <a href="events.html">
+        <img src="images/event.jpg" alt="Event" style="width: 20%"/>
+      </a>
+      <p style="font-size: 15px;">We provide students with STEM educational opportunities including free <b>workshops</b>, <b>seminars</b> and <b>hackathons</b>. We'd like to connect students with professionals in the tech industry and help them prepare for STEM related careers.</p>
+      <a href="events.html" class="link" style="padding-top: 5px; min-width: 200px;">View events</a>
     </div>
-    <div class="area">
-        <p><b>GRANTS</b></p>
-        <a href="grants.html">
-        <img src="images/grant.png" alt="Grant" style="width:42%">
-        </a>
-        <p>We provide grants for new Washington FIRST FLL & FTC teams, as well as offer mentorships to help establish new teams in FIRST programs. </p>
-        <a href="grants.html" class="link">Apply grant</a>
+    <div class="mySlides">
+      <p><b>GRANTS</b></p>
+      <a href="grants.html">
+        <img src="images/grant.png" alt="Grant" style="width: 20%"/>
+      </a>
+      <p style="font-size: 15px;">We provide grants for new Washington FIRST FLL & FTC teams, as well as offer mentorships to help establish new teams in FIRST programs. </p>
+      <a href="grants.html" class="link" style="padding-top: 5px; min-width: 200px;">Apply for Grants</a>
     </div>
-    <div class="area">
-        <p><b>DONATIONS</b></p>
-        <a href="donation.html">
-        <img src="images/donation.png" alt="Donation" style="width:50%">
-        </a>
-        <p>Everstem is qualified to receive donations and company volunteer hour matches through benevity.org. Many companies choose Benevity to make a charitable impact, such as Microsoft, Google.
-        </p>
-        <a href="donation.html" class="link">Learn More</a>
+    <div class="mySlides">
+      <p><b>DONATIONS</b></p>
+      <a href="donation.html">
+        <img src="images/donation.png" alt="Donation" style="width: 20%"/>
+      </a>
+      <p style="font-size: 15px;">Everstem is qualified to receive donations and company volunteer hour matches through benevity.org. Many companies choose Benevity to make a charitable impact, such as Microsoft, Google.</p>
+      <a href="donation.html" class="link" style="padding-top: 5px; min-width: 200px;">Learn More</a>
     </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+
+  <div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
 </div>
 
 <section style="text-align: center;">
@@ -80,7 +91,34 @@
   <a href="https://www.instagram.com/everstem/"><i class="fa fa-instagram"></i></a>
   <a href="https://www.youtube.com/EverstemEducation"><i class="fa fa-youtube"></i></a>
 </footer>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
 
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
 
 </body>
-</html>
+</html> 
