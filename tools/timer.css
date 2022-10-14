@@ -1,3 +1,18 @@
+.grid-half div {
+  padding: 10px;
+}
+
+.border {
+  border-left: 4px solid var(--gray-50);
+}
+
+@media only screen and (max-width: 600px) {
+  .border {
+    border-top: 4px solid var(--gray-50);
+    border-left: none;
+  }
+}
+
 .base-timer {
   position: relative;
   width: 200px;
