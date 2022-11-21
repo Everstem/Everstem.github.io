@@ -13,7 +13,9 @@
     <br /><br />
 <!-- Navigation -->
 <nav class="navbar" style="text-align: center;">
-    <a href="../" class="navbar-item"><img class="homeButton" src="logo.png" height=50px padding=0px></a>
+  <a href="../" class="navbar-item"><img class="homeButton" src="logo.png" height=50px padding=0px></a>
+
+  <div id="side-menu">
     <a href="../events.html" class="navbar-item home"><b>Events</b></a>
     <a href="../grants.html" class="navbar-item home"><b>Grants</b></a>
     <a href="../donation.html" class="navbar-item home"><b>Donate</b></a>
@@ -29,6 +31,11 @@
         </label>
       </div>
     </div>
+  </div>
+
+  <div style="display: flex; align-items: center;justify-content: right;margin-right: 10px;height: 65px;">
+    <button onclic = "toggle()" id="ham-button" class="ham-button"><i class= "fas fa-bars"></i></button>
+  </div>
 </nav>
     <section style="max-width:600px;">
       <br>
@@ -124,6 +131,17 @@ window.onload = function() {
   }
   toggleSwitch.addEventListener('change', switchTheme, false);
 }
+
+      function toggle() {
+  let menu = document.getElementById("side-menu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  }
+  else{
+    menu.style.display = "block";
+  }
+}
+document.getElementById("ham-button").addEventListener("click", toggle);
     </script>
   </body>
 </html>

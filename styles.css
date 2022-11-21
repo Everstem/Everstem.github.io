@@ -185,6 +185,10 @@ hr {
   z-index: 1000;
 }
 
+#side-menu {
+   display: block;
+}
+
 .navbar .navbar-item {
   float: left;
   background-color: transparent;
@@ -393,4 +397,31 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+#ham-button {
+  display: none;
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+@media only screen and (max-width:768px) {
+  .navbar {
+    height: max-content;
+  }
+  #side-menu {
+    display: none;
+  }
+  #ham-button {display: block;}
+  navbar-item: block;
+  display: block;
+  width: 100%;
+}
+@media only screen and (min-width:768px) {
+  #side-menu {display: block !important;}
+}
+.blog:hover {
+  font-color: blue;
 }
