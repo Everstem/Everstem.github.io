@@ -1,0 +1,23 @@
+{
+  "All-Girls CS Workshop": {
+    "title": "All-Girls Computer Science Workshop",
+    "date": "July 21st-23rd, 2021 from 4:30 - 5:30 PM PT",
+    "description": "Everstem Education will be hosting a free computer science workshop for middle school aged girls, but any girls interested in computer science are welcome! We will be covering a variety of topics such as the history of CS, computational thinking, computer hardware, encryption, decryption, cybersecurity, internet safety, and beginner Python programming.",
+    "image": "images/girls.png",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSctwGm2HUE6v8Us-KXvwTXh8p0pK1-TscNf7NQ3ZLpKLm1QCA/viewform"
+  },
+  "Game Theory Workshop": {
+    "title": "Game Theory Workshop",
+    "date": "July 13th-15th, 2021 from 1-3:30 PM PT",
+    "description": "Everstem Education will be hosting a free workshop for teens about Game Theory, a mathematical simulation of real-world interactions used in the business world meant to model how certain situations will play out given different actions.",
+    "image": "images/game.png",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd9XAkxQyjGTUkN780HWegJ_zTIXIKwzQfQpwe8liGOX139hA/viewform"
+  },
+  "Beginner Python Workshop": {
+    "title": "Beginner Python Workshop",
+    "date": "February 6th, 13th, and 20th 2021 from 4-5 PM PT",
+    "description": "Everstem is hosting a free Beginner Python Workshop with FIRST FTC Team 18225 team that's open to all students. Anyone is welcome to join. Before the start of the workshop, please download the latest version of Python, and download PyCharm.",
+    "image": "images/code.png",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe5RSG6Sx3aWX4g4sjeVMxABc8Tjjz0wgvnhQKIpgHlYqAYyA/viewform"
+  }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="./timer.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <script src="https://kit.fontawesome.com/28783eaa78.js" crossorigin="anonymous"></script>
+    <title>Everstem Education | Task Management</title>
+    <link rel="icon" href="../logo.png"/>
+  </head>
+</head>
+
+<body>
+ <br /><br />
+<!-- Navigation -->
+<nav class="navbar" style="text-align: center;">
+  <a href="../" class="navbar-item"><img class="homeButton" src="../logo.png" height=50px padding=0px></a>
+
+  <div id="side-menu">
+    <a href="../events.html" class="navbar-item home"><b>Events</b></a>
+    <a href="../grants.html" class="navbar-item home"><b>Grants</b></a>
+    <a href="../donation.html" class="navbar-item home"><b>Donate</b></a>
+    <a href="../blog.html" class="navbar-item home"><b>Blog</b></a>
+    <a href="../tools/timer.html" class="navbar-item home"><b>Timer</b></a>
+
+    <div class="theme-switch-wrapper">
+      <div>
+        <p style="margin-right: 5px;"><i class="fa-solid fa-moon"></i></p>
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center;justify-content: right;margin-right: 10px;height: 65px;">
+    <button onclic = "toggle()" id="ham-button" class="ham-button"><i class= "fas fa-bars"></i></button>
+  </div>
+</nav>
+    <div class="grid-half" style="color: var(--gray-100)">
+        <div class="side">
+            <h2 class="header">Enter Tasks to Track</h2>
+            <textarea name="Text1"></textarea>
+        </div>
+      
+        <div class="side border">
+            <h2 class="header">Set Timer</h2>
+            <label>Hours:</label>
+            <input type="number" id="hour" value="0"><br>
+            <label>Minutes:</label>
+            <input type="number" id="minute" value="0"><br>
+            <label>Seconds:</label>
+            <input type="number" id="second" value="0"><br>
+            <button id="timerStartBtn" type="button" onclick="startTimer()">Start Timer</button>
+          <button id="timerStartBtn" type="button" onclick="onTimesUp()">Stop Timer</button>
+            <br><br>
+            <div id="app"></div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer>
+  <p>Email us at <a href="mailto:contact@everstem.org">contact@everstem.org</a></p>
+  <a href="https://www.facebook.com/Everstem-Education-105474541794646"><i class="fa fa-facebook-official"></i></a>
+  <a href="https://www.linkedin.com/company/everstem-education/"><i class="fa fa-linkedin"></i></a>
+  <a href="https://www.instagram.com/everstem/"><i class="fa fa-instagram"></i></a>
+  <a href="https://www.youtube.com/EverstemEducation"><i class="fa fa-youtube"></i></a>
+</footer>
+</body>
+
+<script>
+    // Credit: Mateusz Rybczonec
+
+    const FULL_DASH_ARRAY = 283;
+    const WARNING_THRESHOLD = 10;
+    const ALERT_THRESHOLD = 5;
+
+    const COLOR_CODES = {
+        info: {
+            color: "green"
+        },
+        warning: {
+            color: "orange",
+            threshold: WARNING_THRESHOLD
+        },
+        alert: {
+            color: "red",
+            threshold: ALERT_THRESHOLD
+        }
+    };
+
+    TIME_LIMIT = 0;
+    let timePassed = 0;
+    let timeLeft = TIME_LIMIT;
+    let timerInterval = null;
+    let remainingPathColor = COLOR_CODES.info.color;
+
+    document.getElementById("app").innerHTML = `
+    <div class="base-timer">
+    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g class="base-timer__circle">
+        <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+        <path
+            id="base-timer-path-remaining"
+            stroke-dasharray="283"
+            class="base-timer__path-remaining ${remainingPathColor}"
+            d="
+            M 50, 50
+            m -45, 0
+            a 45,45 0 1,0 90,0
+            a 45,45 0 1,0 -90,0
+            "
+        ></path>
+        </g>
+    </svg>
+    <span id="base-timer-label" class="base-timer__label">${formatTime(
+            timeLeft
+        )}</span>
+    </div>
+    `;
+
+    function onTimesUp() {
+      clearInterval(timerInterval);
+      document.getElementById('timerStartBtn').disabled = false;
+    }
+
+    async function startTimer() {
+        TIME_LIMIT = 0;
+        document.getElementById('timerStartBtn').disabled=true;
+        var hourInput = document.getElementById('hour').value;
+        var minuteInput = document.getElementById('minute').value;
+        var secondInput = document.getElementById('second').value;
+
+        if (Notification.permission == "default") {
+          await Notification.requestPermission()
+        }
+
+        if (hourInput==0) { 
+          if (minuteInput == 0) {
+            if (secondInput == 0) {
+              return;
+            }
+          }
+        }
+       
+        TIME_LIMIT = hourInput*60*60 + minuteInput*60 + secondInput*1;
+        timePassed = 0;
+
+        timerInterval = setInterval(() => {
+            timePassed = timePassed += 1;
+            timeLeft = TIME_LIMIT - timePassed;
+            document.getElementById("base-timer-label").innerHTML = formatTime(
+                timeLeft
+            );
+            setCircleDasharray();
+            setRemainingPathColor(timeLeft);
+
+            if (timeLeft === 0) {
+              var notification = new Notification('Everstem Timer', { 
+                body: "Timer is finished! Check in with the tasks you listed!", 
+                icon: "https://everstem.org/logo.png" 
+              });
+              notification.onclick = function() {
+                window.parent.focus();
+                notification.close();
+              }
+              onTimesUp();
+            }
+        }, 1000);
+
+    }
+
+    function formatTime(time) {
+        const hours = Math.floor(time / 3600);
+        const minutes = Math.floor(time / 60) % 60;
+        let seconds = time % 60;
+
+        if (seconds < 10) {
+            seconds = `0${seconds}`;
+        }
+
+        return `${hours}:${minutes}:${seconds}`;
+    }
+
+    function setRemainingPathColor(timeLeft) {
+        const { alert, warning, info } = COLOR_CODES;
+        if (timeLeft <= alert.threshold) {
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(warning.color);
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(alert.color);
+        } else if (timeLeft <= warning.threshold) {
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(info.color);
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(warning.color);
+        }
+    }
+
+    function calculateTimeFraction() {
+        const rawTimeFraction = timeLeft / TIME_LIMIT;
+        return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+    }
+
+    function setCircleDasharray() {
+        const circleDasharray = `${(
+            calculateTimeFraction() * FULL_DASH_ARRAY
+        ).toFixed(0)} 283`;
+        document
+            .getElementById("base-timer-path-remaining")
+            .setAttribute("stroke-dasharray", circleDasharray);
+    }
+
+  function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }    
+}
+
+window.onload = function() {
+  const toggleSwitch = document.querySelector("#checkbox");
+  console.log(toggleSwitch);
+  const currentTheme = localStorage.getItem('theme');
+  
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+  toggleSwitch.addEventListener('change', switchTheme, false);
+}
+
+  function toggle() {
+  let menu = document.getElementById("side-menu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  }
+  else{
+    menu.style.display = "block";
+  }
+}
+document.getElementById("ham-button").addEventListener("click", toggle);
+</script>
+
+</html>

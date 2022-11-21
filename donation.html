@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
-    <title>Everstem Education | Blog</title>
-    <link rel="icon" href="logo.png"/>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
     <script src="https://kit.fontawesome.com/28783eaa78.js" crossorigin="anonymous"></script>
+    <title>Everstem Education | Donate</title>
+    <link rel="icon" href="logo.png"/>
   </head>
   <body>
     <br /><br />
@@ -40,97 +37,44 @@
     <button onclic = "toggle()" id="ham-button" class="ham-button"><i class= "fas fa-bars"></i></button>
   </div>
 </nav>
-    <section class="blog">
-      <div style="text-align: center;">
-        <h2 class="header">Everstem Blog</h2>
-        <p style="color: gray;"><i>A non-profit organization run by students for students</i></p>
+    <section style="max-width:600px; padding: 10px;">
+      <br>
+      <h2 class="header">Donate to Everstem</h2>
+      <p style="color: gray;"><i>A non-profit organization run by students for students</i></p>
+      <p>Thank you for your great generosity! We, at Everstem Education, greatly appreciate your donation. Your support helps to
+        further our mission of making STEM educational opportunities more accessible for all students.
+      </p>
+      <p>Your support is invaluable to us, thank you again! If you have any questions, be sure to reach out to contact@everstem.org!</p>
+      <br>
+      <div class="card">
+        <div style="background-color: #dbdbdb;">
+          <h3><a href="https://benevity.org/">Benevity</a></h3>
+        </div>
+        <div>
+          <br>
+          <img src="images/benevity.png" alt="Benevity" style="width:330px; margin: auto;">
+          <p> Everstem is qualified to receive donations and company volunteer hour matches through benevity.org. Hundreds of companies choose Benevity to make a charitable impact, such as Microsoft, Google, Starbucks e.g.
+          </p>
+          <p> For example, for Microsoft employees, go to <a href=https://microsoft.benevity.org>https://microsoft.benevity.org</a>,
+            Search and select "everstem education".
+          </p>
+        </div>
       </div>
-
-    <div style="border: 4px solid var(--secondary); padding: 5px;">
-      <h2>2021</h2>
-      <a href= "#oct2021">October</a>
-      <a href= "#nov2021">November</a>
-      <a href= "#dec2021">December</a>
-      <br>
-      
-      <h2>2022</h2>
-      <a href= "#jan2022">January</a>
       <br>
       <br>
-    </div>
-      <br />
-
-    <div>
-      <div id ="oct2021">
-        <zero-md src="blogs/Oct2021.md">
-          <template>
-            <style>
-              .markdown-body {
-                color: var(--gray-100);
-              }
-
-              a {
-                color: var(--link);
-              }
-            </style>
-          </template>
-        </zero-md>
-        <hr class ="gray">
-        <br>
-      </div> 
-      <div id ="nov2021">
-        <zero-md src="blogs/Nov2021.md">
-          <template>
-            <style>
-              .markdown-body {
-                color: var(--gray-100);
-              }
-
-              a {
-                color: var(--link);
-              }
-            </style>
-          </template>
-        </zero-md>
-        <hr class ="gray">
-        <br>      
-      </div>  
-      <div id ="dec2021">
-        <zero-md src="blogs/Dec2021.md">
-          <template>
-            <style>
-              .markdown-body {
-                color: var(--gray-100);
-              }
-
-              a {
-                color: var(--link);
-              }
-            </style>
-          </template>
-        </zero-md>
-        <hr class ="gray">
-        <br>
+      <div class="card">
+        <div style="background-color: #dbdbdb;">
+          <h3><a href="https://smile.amazon.com/">Amazon Smile</a></h3>
+        </div>
+        <div>
+          <img src="images/amazonsmile.png" alt="Amazonsmile" style="width:200px; margin: auto;">
+          <p>Amazon can donate 0.5% of your eligible purchases to Everstem at no cost to you. To support
+            Everstem, on your first visit to <a href="https://smile.amazon.com/">smile.amazon.com</a>, add Everstem to receive donations. Or you can simply <a href=https://smile.amazon.com/ch/85-2975790>purchase with this link</a>. If you are using the <b>Amazon mobile app</b>, find "Settings" in the main menu (☰). Tap on "AmazonSmile" and follow the on-screen instructions to
+            turn on AmazonSmile on your phone.
+          </p>
+        </div>
       </div>
-      <div id="jan2022">
-      <zero-md src="blogs/Jan2022.md">
-        <template>
-            <style>
-              .markdown-body {
-                color: var(--gray-100);
-              }
-
-              a {
-                color: var(--link);
-              }
-            </style>
-          </template>
-      </zero-md>
-      <hr class ="gray">
       <br>
-    </div>
-    </div>
-      
     </section>
     <!-- Footer -->
     <footer>
@@ -140,7 +84,6 @@
       <a href="https://www.instagram.com/everstem/"><i class="fa fa-instagram"></i></a>
       <a href="https://www.youtube.com/EverstemEducation"><i class="fa fa-youtube"></i></a>
     </footer>
-
     <script>
       function switchTheme(e) {
   if (e.target.checked) {
